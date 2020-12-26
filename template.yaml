@@ -6,8 +6,8 @@ Resources:
   MainApplication:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: ./dist
-      Handler: gotjoo
+      CodeUri: ./
+      Handler: main
       Runtime: go1.x
       Events:
         RootEndpoint:

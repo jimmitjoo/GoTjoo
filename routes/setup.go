@@ -20,7 +20,7 @@ func SetupRoutes(router *gin.Engine) {
 
 	ginLambda = ginadapter.New(router)
 
-	router.Run("0.0.0.0:7500")
+	//router.Run("0.0.0.0:7500")
 }
 
 func Handler(ctx context.Context, req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {

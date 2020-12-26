@@ -5,7 +5,7 @@ auth:
 	cd routes && sed -i '' 's/\/\/Auth/Auth/g' setup.go
 
 build:
-	GOOS=linux GOARCH=amd64 go build -o ./dist .
+	GOOS=linux GOARCH=amd64 go build -o main
 
 controller:
 	cp ./stubs/controller.stub ./app/controllers/$(name).go

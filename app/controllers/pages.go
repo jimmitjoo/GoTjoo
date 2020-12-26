@@ -6,19 +6,21 @@ import (
 )
 
 func StartPage(context *gin.Context) {
-	//context.Data(http.StatusOK, "text/html", html)
 	context.HTML(http.StatusOK, "index.gohtml", gin.H{
 		"title": "GoTjoo",
 	})
-	//context.JSON(http.StatusOK, gin.H{"data": "This is the starting page."})
 }
 
 func AboutPage(context *gin.Context) {
-	context.JSON(http.StatusOK, gin.H{"data": "This is the about page."})
+	context.HTML(http.StatusOK, "about.gohtml", gin.H{
+		"title": "About GoTjoo",
+	})
 }
 
 func ContactPage(context *gin.Context) {
-	context.JSON(http.StatusOK, gin.H{"data": "This is the contact page."})
+	context.HTML(http.StatusOK, "contact.gohtml", gin.H{
+		"title": "Contact GoTjoo",
+	})
 }
 
 func NotFoundPage(context *gin.Context) {
