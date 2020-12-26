@@ -12,17 +12,19 @@ func StartPage(context *gin.Context) {
 }
 
 func AboutPage(context *gin.Context) {
-	context.HTML(http.StatusOK, "about.gohtml", gin.H{
+	context.HTML(http.StatusOK, "page.gohtml", gin.H{
 		"title": "About GoTjoo",
 	})
 }
 
 func ContactPage(context *gin.Context) {
-	context.HTML(http.StatusOK, "contact.gohtml", gin.H{
+	context.HTML(http.StatusOK, "page.gohtml", gin.H{
 		"title": "Contact GoTjoo",
 	})
 }
 
 func NotFoundPage(context *gin.Context) {
-	context.JSON(http.StatusNotFound, gin.H{"data": "Something went wrong, we cannot find this page."})
+	context.HTML(http.StatusNotFound, "error.gohtml", gin.H{
+		"title": "Page not found",
+	})
 }
