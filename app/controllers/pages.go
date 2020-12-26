@@ -6,7 +6,11 @@ import (
 )
 
 func StartPage(context *gin.Context) {
-	context.JSON(http.StatusOK, gin.H{"data": "This is the starting page."})
+	//context.Data(http.StatusOK, "text/html", html)
+	context.HTML(http.StatusOK, "index.gohtml", gin.H{
+		"title": "GoTjoo",
+	})
+	//context.JSON(http.StatusOK, gin.H{"data": "This is the starting page."})
 }
 
 func AboutPage(context *gin.Context) {

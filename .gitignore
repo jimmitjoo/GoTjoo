@@ -1,2 +1,5 @@
 # Ignoring files from GoLand editor
 .idea
+
+# builds
+dist

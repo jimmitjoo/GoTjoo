@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: This is GoTjoo.
+
+Resources:
+  MainApplication:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./dist
+      Handler: gotjoo
+      Runtime: go1.x
+      Events:
+        RootEndpoint:
+          Type: Api
+          Properties:
+            Method: any
+            Path: /
+        CatchAll:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: ANY

@@ -1,24 +1,30 @@
 package routes
 
 import (
+	"context"
+	"github.com/aws/aws-lambda-go/events"
+	"github.com/awslabs/aws-lambda-go-api-proxy/gin"
 	"github.com/gin-gonic/gin"
 	"github.com/jimmitjoo/gotjoo/app/controllers"
 )
 
-func SetupRoutes() {
-	router := gin.Default()
+var ginLambda *ginadapter.GinLambda
 
-	// middleware - intercept requests to use our db controller
-	router.Use(func(context *gin.Context) {
-		// provide db variable to controllers
-		//context.Set("db", db)
-		context.Next()
-	})
+func SetupRoutes(router *gin.Engine) {
 
 	Api(router)
 	Web(router)
 	//Auth(router)
 
 	router.NoRoute(controllers.NotFoundPage)
+
+	ginLambda = ginadapter.New(router)
+
 	router.Run("0.0.0.0:7500")
+}
+
+func Handler(ctx context.Context, req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+	// If no name is provided in the HTTP request body, throw an error
+	req.Headers["Content-Type"] = "text/html"
+	return ginLambda.ProxyWithContext(ctx, req)
 }
