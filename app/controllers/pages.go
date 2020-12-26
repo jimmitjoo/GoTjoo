@@ -18,5 +18,5 @@ func ContactPage(context *gin.Context) {
 }
 
 func NotFoundPage(context *gin.Context) {
-	context.JSON(http.StatusOK, gin.H{"data": "Something went wrong, we cannot find this page."})
+	context.JSON(http.StatusNotFound, gin.H{"data": "Something went wrong, we cannot find this page."})
 }

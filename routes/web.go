@@ -5,10 +5,8 @@ import (
 	"github.com/jimmitjoo/gotjoo/app/controllers"
 )
 
-func Web(router *gin.Engine) *gin.Engine {
+func Web(router *gin.Engine) {
 	router.GET("/", controllers.StartPage)
 	router.GET("/about", controllers.AboutPage)
 	router.GET("/contact", controllers.ContactPage)
-
-	return router
 }
