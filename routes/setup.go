@@ -17,6 +17,7 @@ func SetupRoutes() {
 
 	Api(router)
 	Web(router)
+	//Auth(router)
 
 	router.NoRoute(controllers.NotFoundPage)
 	router.Run("0.0.0.0:7500")

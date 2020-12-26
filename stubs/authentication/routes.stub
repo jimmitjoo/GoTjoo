@@ -1,0 +1,12 @@
+package routes
+
+import (
+	"github.com/gin-gonic/gin"
+	"github.com/jimmitjoo/gotjoo/app/controllers"
+)
+
+func Auth(router *gin.Engine) {
+	router.GET("/login", controllers.LoginPage)
+	router.GET("/register", controllers.RegisterPage)
+	router.GET("/forgot-password", controllers.ForgotPasswordPage)
+}
