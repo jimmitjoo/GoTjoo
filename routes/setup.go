@@ -5,7 +5,7 @@ import (
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/awslabs/aws-lambda-go-api-proxy/gin"
 	"github.com/gin-gonic/gin"
-	"github.com/jimmitjoo/gotjoo/app/controllers"
+	webcontroller "github.com/jimmitjoo/gotjoo/app/controllers/web"
 )
 
 var ginLambda *ginadapter.GinLambda
@@ -14,9 +14,9 @@ func SetupRoutes(router *gin.Engine) {
 
 	Api(router)
 	Web(router)
-	Auth(router)
+	// Auth(router)
 
-	router.NoRoute(controller.NotFoundPage)
+	router.NoRoute(webcontroller.NotFoundPage)
 
 	ginLambda = ginadapter.New(router)
 

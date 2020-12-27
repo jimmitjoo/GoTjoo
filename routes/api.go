@@ -2,15 +2,15 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/jimmitjoo/gotjoo/app/controllers"
+	apicontroller "github.com/jimmitjoo/gotjoo/app/controllers/api"
 )
 
 func Api(router *gin.Engine) *gin.RouterGroup {
 	api := router.Group("api")
 	{
-		api.GET("/", controller.StartPage)
-		api.GET("/about", controller.AboutPage)
-		api.GET("/contact", controller.ContactPage)
+		api.GET("/", apicontroller.StartPage)
+		api.GET("/about", apicontroller.AboutPage)
+		api.GET("/contact", apicontroller.ContactPage)
 	}
 
 	return api
