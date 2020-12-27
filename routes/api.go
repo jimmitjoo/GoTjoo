@@ -8,9 +8,9 @@ import (
 func Api(router *gin.Engine) *gin.RouterGroup {
 	api := router.Group("api")
 	{
-		api.GET("/", controllers.StartPage)
-		api.GET("/about", controllers.AboutPage)
-		api.GET("/contact", controllers.ContactPage)
+		api.GET("/", controller.StartPage)
+		api.GET("/about", controller.AboutPage)
+		api.GET("/contact", controller.ContactPage)
 	}
 
 	return api

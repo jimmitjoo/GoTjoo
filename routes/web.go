@@ -6,7 +6,7 @@ import (
 )
 
 func Web(router *gin.Engine) {
-	router.GET("/", controllers.StartPage)
-	router.GET("/about", controllers.AboutPage)
-	router.GET("/contact", controllers.ContactPage)
+	router.GET("/", controller.StartPage)
+	router.GET("/about", controller.AboutPage)
+	router.GET("/contact", controller.ContactPage)
 }

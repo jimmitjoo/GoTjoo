@@ -14,9 +14,9 @@ func SetupRoutes(router *gin.Engine) {
 
 	Api(router)
 	Web(router)
-	//Auth(router)
+	Auth(router)
 
-	router.NoRoute(controllers.NotFoundPage)
+	router.NoRoute(controller.NotFoundPage)
 
 	ginLambda = ginadapter.New(router)
 
